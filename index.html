@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 1. ตั้งชื่อเว็บไซต์ตรงนี้ (จะแสดงบนแท็บบราวเซอร์) -->
-    <title>Pannawat Knowledge Hub | คลังความรู้ส่วนตัว</title>
+    <title>Pannawat Knowledge Hub | คลังคลิป GEN 5</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,6 +14,7 @@
             --bg-color: #F4F7F9;
             --card-bg: #FFFFFF;
             --text-color: #333333;
+            --accent-purple: #8E44AD;
         }
 
         * {
@@ -31,9 +30,9 @@
             padding-bottom: 50px;
         }
 
-        /* Header ส่วนโปรไฟล์ & ชื่อเว็บ */
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #3A7BD5, #3A6073);
+            background: linear-gradient(135deg, #2C3E50, #4A90E2);
             color: white;
             text-align: center;
             padding: 35px 20px 25px;
@@ -50,44 +49,10 @@
             margin-bottom: 10px;
         }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid white;
-            object-fit: cover;
-            margin: 10px 0;
-        }
-
-        .social-links {
-            margin-top: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .social-btn {
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .social-btn:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        /* 2. ช่องค้นหา (Search Bar) */
+        /* Search Bar */
         .search-container {
-            max-width: 600px;
-            margin: -22px auto 20px;
+            max-width: 650px;
+            margin: -22px auto 15px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
@@ -116,13 +81,58 @@
             background: transparent;
         }
 
-        /* แถบ Tabs */
+        /* แท็บบาร์พับซ่อนได้ (Collapsible Drawer) */
+        .hidden-drawer-toggle {
+            max-width: 850px;
+            margin: 0 auto 15px;
+            padding: 0 20px;
+        }
+
+        .drawer-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #6C5CE7, #a29bfe);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+            transition: 0.3s;
+        }
+
+        .drawer-btn:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+
+        .drawer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+            background: #FFFFFF;
+            border-radius: 15px;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            padding: 0 20px;
+        }
+
+        .drawer-content.open {
+            max-height: 2500px;
+            padding: 20px;
+        }
+
+        /* Navigation Tabs */
         .nav-tabs {
             display: flex;
             justify-content: center;
             background: white;
             margin: 0 auto 20px;
-            max-width: 800px;
+            max-width: 850px;
             border-radius: 30px;
             padding: 5px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -148,7 +158,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -164,51 +174,19 @@
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            gap: 15px;
             margin-top: 15px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .category-filter {
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border: 1px solid #EFEFEF;
             display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 5px 12px;
-            border: 1px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        .filter-btn.active {
-            background: var(--primary-color);
-            color: white;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .badge {
@@ -219,50 +197,42 @@
             border-radius: 10px;
             font-size: 12px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            width: fit-content;
         }
 
-        .btn-watch {
+        .badge-note {
+            background: #FFF3CD;
+            color: #856404;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 6px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .btn-watch-yt {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 6px;
             background: #FF0000;
             color: white;
-            padding: 8px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 14px;
-            margin-top: 15px;
-        }
-
-        .exam-item {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 15px;
-            background: #FAFAFA;
-            padding: 12px 15px;
-            border-radius: 8px;
-        }
-
-        .toggle-ans-btn {
-            background: #EAEAEA;
-            border: none;
-            padding: 4px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            margin-top: 6px;
-        }
-
-        .answer-box {
-            display: none;
-            background: #E8F8F5;
-            padding: 8px 12px;
+            padding: 6px 12px;
             border-radius: 6px;
-            margin-top: 6px;
-            font-size: 14px;
-            color: #0E6251;
+            text-decoration: none;
+            font-size: 13px;
+            margin-top: 8px;
+            width: fit-content;
+        }
+
+        .btn-watch-yt:hover {
+            background: #CC0000;
+        }
+
+        .email-info {
+            font-size: 12px;
+            color: #777;
+            margin-top: 2px;
         }
 
         .no-result {
@@ -270,37 +240,222 @@
             text-align: center;
             padding: 30px;
             color: #777;
-            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & ชื่อเว็บ -->
+    <!-- Header -->
     <header class="header">
-        <span class="site-badge"><i class="fas fa-globe"></i> MY KNOWLEDGE BASE</span>
-        <!-- ตั้งชื่อเว็บตรงนี้ -->
+        <span class="site-badge"><i class="fas fa-graduation-cap"></i> KKU MEDICAL LECTURES</span>
         <h1>Pannawat Learning Space</h1>
-        <p>คลังคลิปการเรียน ข้อสอบ และบันทึกส่วนตัว</p>
-        
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
-        </div>
+        <p>คลังคลิปการเรียน GEN 5 และการติวสอบ</p>
     </header>
 
     <!-- ช่องค้นหา (Search Bar) -->
     <div class="search-container">
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาคลิปเรียน, ข้อสอบ, หรือเรื่องที่สนใจ..." onkeyup="liveSearch()">
+            <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาชื่ออาจารย์, Lecture (เช่น Lec 18), หรืออีเมล..." onkeyup="liveSearch()">
         </div>
     </div>
 
-    <!-- แถบ Tabs -->
+    <!-- 🌟 แท็บบาร์พับซ่อนได้ (Hidden Bar Drawer) 🌟 -->
+    <div class="hidden-drawer-toggle">
+        <button class="drawer-btn" onclick="toggleDrawer()">
+            <span><i class="fas fa-folder-open"></i> 🎓 แท็บบาร์พิเศษ: คลังคลิปการเรียน GEN 5 (17 ท่าน)</span>
+            <i class="fas fa-chevron-down" id="drawerIcon"></i>
+        </button>
+        
+        <div class="drawer-content" id="drawerContent">
+            <p style="font-size: 13px; color: #666; margin-bottom: 12px;">
+                <i class="fas fa-info-circle"></i> ข้อมูลวิดีโอบันทึกการสอนจากอาจารย์ประจำวิชา GEN 5
+            </p>
+            <div class="grid-cards">
+                <!-- 1 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 1, 2</span>
+                        <h4>อ.ดร.พงศธร วิเชียร</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> phongsathorn@kku.ac.th</p>
+                        <span class="badge-note">📌 หมายเหตุ: ให้อ่านมาก่อน</span>
+                    </div>
+                    <a href="https://youtu.be/o9-scuolVI8?si=0pOwK9OJ81AVWODA" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 2 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 3, 4, 5</span>
+                        <h4>อ.นพ.สิรวิชญ์ เจษฎาภัทรกุล</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> siraja@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/2sY0vmCMITI?si=RvrAOeqAk4fTLxT3" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 3 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 6, 7</span>
+                        <h4>อ.กิตติ อินทุยศ</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> kittin@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/yrEwMlzXv4M?si=3zUMe48yIxdb6E-N" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 4 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 8, 9</span>
+                        <h4>ผศ.นพ.ชัยวัชร์ อภิวาทนสิริ</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> chaiap@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/sSI0KJCG5xo?si=XoaWDjFKQtgdlZCp" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 5 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 10, 11, 12</span>
+                        <h4>ผศ.นพ.ประกาศิต เสงี่ยมวิบูล</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> prakasa@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/lFfuC_j2rHY?si=COiGKLa5n_Go-r8g" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 6 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 13, 14</span>
+                        <h4>ผศ.ดร.ธวัชชัย ปราบศัตรู</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> thawatp@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/exWxLP2aNHA?si=QjL0aDV8uZwkOtdN" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 7 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 14, 15</span>
+                        <h4>ผศ.นพ.วรานนท์ มั่นคง</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> waranon@kku.ac.th</p>
+                        <span class="badge-note">📌 หมายเหตุ: เข้ามาเรียนกันเยอะๆ</span>
+                    </div>
+                    <a href="https://youtu.be/AItq9u0hW6w?si=SXyuYsCEaKh66wq9" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 8 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 16</span>
+                        <h4>ผศ.นฤดม ศุภกะลิน</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> oakblackbird@gmail.com</p>
+                    </div>
+                    <a href="https://youtu.be/M4Fqnvw0I24?si=bBYd6zv6pypA_bEa" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 9 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 17</span>
+                        <h4>รศ.นพ.ดริส ธีระกุลพิศุทธิ์</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> daristh@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/U-8cRavNyJ4?si=oUyHvguoUvrxQLjA" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 10 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 18, 24, 28, 29</span>
+                        <h4>ผศ.ดร.ปณต ตั้งสุจริต</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> pantan@kku.ac.th</p>
+                        <span class="badge-note">📌 ต้องเข้า ≥ 60%</span>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <a href="https://youtu.be/R4Y4UfjEVp0?si=8SVkBNIhBiAUb_cf" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L18</a>
+                        <a href="https://youtu.be/cPdxLM7eFJU?si=pvsx09DCrPukiM9j" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L24</a>
+                        <a href="https://youtu.be/DBlF5EkTtCc?si=TPL8CLOrmmQOBl75" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L28-29</a>
+                    </div>
+                </div>
+                <!-- 11 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 19, 23</span>
+                        <h4>รศ.ดร.ลัดดาวัลย์ เส็งกันไพร</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> laddas@kku.ac.th</p>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <a href="https://youtu.be/R4Y4UfjEVp0?si=lpLhgqBmnnpaZ8Rw" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L19</a>
+                        <a href="https://youtu.be/iH5eeKq1-Gg?si=b2qoglVIsZjgEvqw" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L23</a>
+                    </div>
+                </div>
+                <!-- 12 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 20-22, 25-27, 42</span>
+                        <h4>ศ.ดร.วิจิตรา ทัศนียกุล</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> wichittra.tassaneeyakul@gmail.com</p>
+                        <span class="badge-note">📌 หมายเหตุ: ให้อ่านมาก่อน</span>
+                    </div>
+                    <div style="margin-top: 8px; display:flex; flex-wrap:wrap; gap:4px;">
+                        <a href="https://youtu.be/VTRJ7jX6SL0?si=Ho82nyw4h-DyPX6f" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L20-21</a>
+                        <a href="https://youtu.be/iH5eeKq1-Gg?si=b2qoglVIsZjgEvqw" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L22</a>
+                        <a href="https://youtu.be/cPdxLM7eFJU?si=pvsx09DCrPukiM9j" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L25-26</a>
+                        <a href="https://youtu.be/DBlF5EkTtCc?si=TPL8CLOrmmQOBl75" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L27</a>
+                        <a href="https://youtu.be/CnAS9nNTPPc?si=y-E8oKyfw-tPGVbv" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L42</a>
+                    </div>
+                </div>
+                <!-- 13 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 30, 31, 32</span>
+                        <h4>รศ.พญ.สุดา วรรณประสาท</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> sudvan@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/23YRDTH9aPE?si=SshL2YZxHMOhuESG" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 14 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 33, 34, 41</span>
+                        <h4>อ.ดร.ภก.กานต์ชนก กายเมืองปัก</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> karnkai@kku.ac.th</p>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <a href="https://youtu.be/fjjX9MdP0bw?si=3-JeJHZpBKEQ-mUg" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L33-34</a>
+                        <a href="https://youtu.be/CnAS9nNTPPc?si=IFieBKPu9fBqhAxG" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L41</a>
+                    </div>
+                </div>
+                <!-- 15 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 35</span>
+                        <h4>อ.ดร.รัตนธร ชูนอง</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> rattach@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/HzWW1kaMeAE?si=n12gVZqrywJokEt1" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 16 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 36, 37</span>
+                        <h4>ผศ.ดร.ศิริมาศ กาญจนวาศ</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> sirimas@kku.ac.th</p>
+                    </div>
+                    <a href="https://youtu.be/kRYEQuxJHnQ?si=TVJTbNMJ6pcvu4z3" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
+                </div>
+                <!-- 17 -->
+                <div class="card searchable">
+                    <div>
+                        <span class="badge">Lec 38, 39, 40</span>
+                        <h4>รศ.ดร.นนทญา นาคคำ</h4>
+                        <p class="email-info"><i class="fas fa-envelope"></i> nontna@kku.ac.th</p>
+                        <span class="badge-note">📌 หมายเหตุ: เข้ามาเรียนกันเยอะๆ</span>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <a href="https://youtu.be/SK5aXDmHkBE?si=AIirPHvi_LhI6Muq" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L38</a>
+                        <a href="https://youtu.be/ONJre7CO12Y?si=VMP4z-oufPrpt5F3" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L39-40</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- แถบ Tabs หลัก -->
     <nav class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('study')"><i class="fas fa-book-open"></i> คลิปสอน & การเรียน</button>
+        <button class="tab-btn active" onclick="switchTab('study')"><i class="fas fa-book-open"></i> สรุปบทเรียนทั่วไป</button>
         <button class="tab-btn" onclick="switchTab('exams')"><i class="fas fa-pen-to-square"></i> คลังข้อสอบ</button>
         <button class="tab-btn" onclick="switchTab('lifestyle')"><i class="fas fa-heart"></i> เมนูโปรด & กิจกรรม</button>
     </nav>
@@ -311,77 +466,55 @@
             <p>ไม่พบข้อมูลที่ตรงกับคำค้นหาของคุณ</p>
         </div>
 
-        <!-- แท็บ 1: คลิปสอน -->
+        <!-- แท็บหลัก -->
         <section id="study" class="tab-content active">
-            <div class="category-filter">
-                <button class="filter-btn active" onclick="filterVideo('all')">ทั้งหมด</button>
-                <button class="filter-btn" onclick="filterVideo('math')">คณิตศาสตร์</button>
-                <button class="filter-btn" onclick="filterVideo('science')">ชีววิทยา / วิทย์</button>
-                <button class="filter-btn" onclick="filterVideo('coding')">การเขียนโปรแกรม</button>
-            </div>
-
             <div class="grid-cards">
-                <div class="card video-card searchable" data-category="coding">
+                <div class="card searchable">
                     <span class="badge">การเขียนโปรแกรม</span>
-                    <h3>พื้นฐาน Python สำหรับผู้เริ่มต้น</h3>
-                    <p>เรียนรู้การเขียนสคริปต์ ตัวแปร และการทำงานคำสั่งเงื่อนไขเบื้องต้น</p>
-                    <a href="https://www.youtube.com" target="_blank" class="btn-watch"><i class="fab fa-youtube"></i> กดดูคลิปสอน</a>
-                </div>
-
-                <div class="card video-card searchable" data-category="math">
-                    <span class="badge">คณิตศาสตร์</span>
-                    <h3>สรุปสูตรแคลคูลัส อนุพันธ์ และอินทิเกรต</h3>
-                    <p>ตลุยโจทย์ดิฟขั้นพื้นฐาน พร้อมสูตรลัดและแนวข้อสอบเข้ามหาวิทยาลัย</p>
-                    <a href="https://www.youtube.com" target="_blank" class="btn-watch"><i class="fab fa-youtube"></i> กดดูคลิปสอน</a>
-                </div>
-
-                <div class="card video-card searchable" data-category="science">
-                    <span class="badge">ชีววิทยา / วิทย์</span>
-                    <h3>กระบวนการสังเคราะห์ด้วยแสงของพืช</h3>
-                    <p>สรุปขั้นตอน Light Reaction และ Calvin Cycle สำหรับทบทวนก่อนสอบ</p>
-                    <a href="https://www.youtube.com" target="_blank" class="btn-watch"><i class="fab fa-youtube"></i> กดดูคลิปสอน</a>
+                    <h4>พื้นฐาน Python สำหรับผู้เริ่มต้น</h4>
+                    <p style="font-size: 13px; color: #555;">เรียนรู้การเขียนสคริปต์ ตัวแปร และการทำงานคำสั่งเงื่อนไขเบื้องต้น</p>
+                    <a href="https://www.youtube.com" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปสอน</a>
                 </div>
             </div>
         </section>
 
-        <!-- แท็บ 2: ข้อสอบ -->
         <section id="exams" class="tab-content">
             <div class="card">
-                <h3>📝 คลังแบบฝึกหัด & แนวข้อสอบวิชา Skin</h3>
-                <br>
-                <div class="exam-item searchable">
-                    <p><strong>ข้อ 1:</strong> ออร์แกเนลล์ใดทำหน้าที่เปรียบเสมือนโรงงานไฟฟ้าประจำเซลล์ในการสร้างพลังงาน ATP?</p>
-                    <button class="toggle-ans-btn" onclick="toggleAnswer(this)">ดูเฉลย</button>
-                    <div class="answer-box"><strong>เฉลย:</strong> ไมโทคอนเดรีย (Mitochondria)</div>
-                </div>
-
-                <div class="exam-item searchable">
-                    <p><strong>ข้อ 2:</strong> กระบวนการขนส่งสารผ่านเยื่อหุ้มเซลล์แบบใดที่ไม่ต้องใชัพลังงาน ATP?</p>
-                    <button class="toggle-ans-btn" onclick="toggleAnswer(this)">ดูเฉลย</button>
-                    <div class="answer-box"><strong>เฉลย:</strong> การแพร่แบบธรรมดา (Simple Diffusion) และ ออสโมซิส (Osmosis)</div>
+                <h3>📝 แนวข้อสอบชีววิทยา</h3>
+                <div style="margin-top: 10px;">
+                    <div class="searchable" style="background:#F9F9F9; padding:10px; border-radius:8px; margin-bottom:8px;">
+                        <p><strong>ข้อ 1:</strong> ออร์แกเนลล์ใดทำหน้าที่เปรียบเสมือนโรงงานไฟฟ้าประจำเซลล์?</p>
+                        <span style="font-size:13px; color:#27AE60;">เฉลย: ไมโทคอนเดรีย (Mitochondria)</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- แท็บ 3: กิจกรรม & อาหาร -->
         <section id="lifestyle" class="tab-content">
             <div class="grid-cards">
                 <div class="card searchable">
-                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400" alt="ผัดกะเพรา">
-                    <h3>ผัดกะเพราหมูกรอบ</h3>
-                    <p>อาหารโปรดประจำวัน สั่งแบบเผ็ดน้อย</p>
-                </div>
-                <div class="card searchable">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400" alt="ออกกำลังกาย">
-                    <h3>ออกกำลังกาย & ฟิตเนส</h3>
-                    <p>ตารางซ้อมเวทเทรนนิ่ง และวิ่งออกกำลังกายสัปดาห์ละ 3 วัน</p>
+                    <h4>ผัดกะเพราหมูกรอบ</h4>
+                    <p style="font-size: 13px; color: #555;">อาหารโปรดประจำวัน สั่งแบบเผ็ดน้อย</p>
                 </div>
             </div>
         </section>
     </div>
 
     <script>
-        // สลับแท็บ
+        // เปิด/ปิด แถบหลบซ่อน GEN 5 Drawer
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawerContent');
+            const icon = document.getElementById('drawerIcon');
+            drawer.classList.toggle('open');
+            
+            if (drawer.classList.contains('open')) {
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                icon.className = 'fas fa-chevron-down';
+            }
+        }
+
+        // สลับแท็บหลัก
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -389,16 +522,21 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
 
-            // ล้างการค้นหาเมื่อเปลี่ยนแท็บ
             document.getElementById('searchInput').value = '';
             liveSearch();
         }
 
-        // ค้นหาข้อความในหน้าเว็บ (Live Search)
+        // ค้นหาคำ
         function liveSearch() {
             let query = document.getElementById('searchInput').value.toLowerCase().trim();
             let items = document.querySelectorAll('.searchable');
             let visibleCount = 0;
+
+            // ถ้าค้นหา ให้เปิดแถบหลบซ่อนอัตโนมัติเพื่อให้เห็นผลลัพธ์
+            if (query !== '') {
+                document.getElementById('drawerContent').classList.add('open');
+                document.getElementById('drawerIcon').className = 'fas fa-chevron-up';
+            }
 
             items.forEach(item => {
                 let text = item.innerText.toLowerCase();
@@ -410,41 +548,11 @@
                 }
             });
 
-            // แสดงข้อความเมื่อไม่พบผลการค้นหา
             let noResultBox = document.getElementById('noResult');
             if (visibleCount === 0 && query !== '') {
                 noResultBox.style.display = 'block';
             } else {
                 noResultBox.style.display = 'none';
-            }
-        }
-
-        // กรองหมวดหมู่
-        function filterVideo(cat) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            document.getElementById('searchInput').value = '';
-            const cards = document.querySelectorAll('.video-card');
-            cards.forEach(card => {
-                if (cat === 'all' || card.getAttribute('data-category') === cat) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            document.getElementById('noResult').style.display = 'none';
-        }
-
-        // เปิด/ปิดเฉลยข้อสอบ
-        function toggleAnswer(btn) {
-            const ansBox = btn.nextElementSibling;
-            if (ansBox.style.display === 'block') {
-                ansBox.style.display = 'none';
-                btn.innerText = 'ดูเฉลย';
-            } else {
-                ansBox.style.display = 'block';
-                btn.innerText = 'ซ่อนเฉลย';
             }
         }
     </script>
