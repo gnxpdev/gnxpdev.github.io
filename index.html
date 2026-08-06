@@ -130,7 +130,6 @@
             margin-bottom: 15px;
         }
 
-        /* เปิดกางเนื้อหาไว้เป็นค่าเริ่มต้น (open) */
         .drawer-content {
             max-height: 0;
             overflow: hidden;
@@ -143,7 +142,7 @@
         }
 
         .drawer-content.open {
-            max-height: 7500px;
+            max-height: 8000px;
             padding: 20px;
         }
 
@@ -206,7 +205,6 @@
         .badge-skin { background: #FDEBD0; color: var(--accent-skin); }
         .badge-lab { background: #E8DAEF; color: #8E44AD; }
 
-        /* 🌟 ป้ายรอบสอบ MCQ เด่นชัด 🌟 */
         .badge-mcq {
             display: block;
             font-size: 12px;
@@ -240,12 +238,12 @@
             gap: 6px;
             background: #FF0000;
             color: white;
-            padding: 7px 14px;
+            padding: 7px 12px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
-            margin-top: 8px;
+            margin-top: 6px;
             width: fit-content;
         }
 
@@ -255,12 +253,12 @@
             gap: 6px;
             background: #107C41;
             color: white;
-            padding: 7px 14px;
+            padding: 7px 12px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
-            margin-top: 8px;
+            margin-top: 6px;
             width: fit-content;
         }
 
@@ -323,7 +321,7 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาอาจารย์, วิชา, Lecture, หรือรอบข้อสอบ (MCQ I, MCQ II, MCQ III)..." onkeyup="liveSearch()">
             </div>
 
-            <!-- แถบซ่อนคลิปสอนอาจารย์ (เปิดกาง open ไว้เป็นค่าเริ่มต้น) -->
+            <!-- แถบซ่อนคลิปสอนอาจารย์ -->
             <button class="drawer-btn" onclick="toggleDrawer()">
                 <span><i class="fas fa-folder-open"></i> 🎓 คลังคลิปการสอนอาจารย์ & ขอบเขตสอบ MCQ (GEN 5 & SKIN Block)</span>
                 <i class="fas fa-chevron-up" id="drawerIcon"></i>
@@ -513,7 +511,7 @@
                     </div>
                 </div>
 
-                <!-- 🌟 SKIN Block (แสดงป้ายสอบ MCQ เด่นชัดบนทุกการ์ด) 🌟 -->
+                <!-- 🌟 SKIN Block (อัปเดตเพิ่มคลิป L13, L14, L23-24, L25, L26) 🌟 -->
                 <div id="subjectSkin" class="subject-block active">
                     <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                         <span style="font-size: 13px; color: #555;"><i class="fas fa-list-ol"></i> รายชื่อคลิปการสอนและรอบสอบ MCQ วิชา SKIN Block</span>
@@ -576,7 +574,7 @@
                             <a href="https://youtu.be/nzLxbJoyE4w?si=u8k1Z-vLyrDhDIpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L8</a>
                         </div>
 
-                        <!-- 📍 L9-12 & L17 (MCQ I ชุดที่ 2) -->
+                        <!-- L9-12 & L17 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 9-12, 17</span>
@@ -587,7 +585,7 @@
                             <a href="https://youtu.be/_gVAFf2EnEg?si=GwMOQ9zgeMrUk2_n" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L10-12 / L17</a>
                         </div>
 
-                        <!-- L13-15 -->
+                        <!-- 📍 L13, L14, L15 (อัปเดตเพิ่มคลิป L13 P1-P2 & L14) -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 13, 14, 15</span>
@@ -595,7 +593,12 @@
                                 <p class="email-info">Pyogenic cocci, Anaerobic, Gram +/- bacilli (3 h)</p>
                                 <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
-                            <a href="https://youtu.be/AMMwkzpV6Iw?si=J8fjWM6NNATdaOzF" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L15</a>
+                            <div style="margin-top: 8px; display:flex; flex-wrap:wrap; gap:4px;">
+                                <a href="https://youtu.be/Jeako4CGTbI?si=p_rRm2cpOUyogHvg" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L13 Part 1</a>
+                                <a href="https://youtu.be/29ZWqgE41sU?si=sB6dlA8eJlpG6SJS" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L13 Part 2</a>
+                                <a href="https://youtu.be/SIVrDG3mmL0?si=ydgv2owP8hlox6i" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L14</a>
+                                <a href="https://youtu.be/AMMwkzpV6Iw?si=J8fjWM6NNATdaOzF" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L15</a>
+                            </div>
                         </div>
 
                         <!-- L16, 18, 19 -->
@@ -632,6 +635,34 @@
                                 <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
                             <a href="https://youtu.be/abFWRLXXFQs?si=h0A53WfO_0OUN90O" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L22</a>
+                        </div>
+
+                        <!-- 📍 L23, L24 (อัปเดตเพิ่มคลิป L23-24 Part 1 & 2) -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 23, 24</span>
+                                <h4>ผศ.ดร.ชาทะนันท์ เอี่ยมอุดมกาล</h4>
+                                <p class="email-info">Arthropod infestation (2 h)</p>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
+                            </div>
+                            <div style="margin-top: 8px; display:flex; flex-wrap:wrap; gap:4px;">
+                                <a href="https://youtu.be/F1_VGBTbWkw?si=1hpw4fwKOGWI4Igw" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L23-24 Part 1</a>
+                                <a href="https://youtu.be/6LAXJ0F3q4o?si=ydniZfQAJNzoT1Yg" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L23-24 Part 2</a>
+                            </div>
+                        </div>
+
+                        <!-- 📍 L25, L26 (อัปเดตเพิ่มคลิป L25 & L26) -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 25, 26</span>
+                                <h4>อ.ดร.นพ.อภิสิทธิ์ ไชยดี</h4>
+                                <p class="email-info">Venomous & poisonous animals (1 h) / Parasitic (1 h)</p>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
+                            </div>
+                            <div style="margin-top: 8px; display:flex; flex-wrap:wrap; gap:4px;">
+                                <a href="https://youtu.be/K2JOm9wuReo?si=pFMHXt6WPwW16hWN" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L25</a>
+                                <a href="https://youtu.be/MU7ChaH6LMc?si=Ji6Brb9F0YtwtBIE" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L26</a>
+                            </div>
                         </div>
 
                         <!-- L27-28 -->
@@ -710,16 +741,6 @@
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
                             <a href="https://youtu.be/TcXdgT-416k?si=sYISaM9WyCrINla-" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป Lab 7</a>
-                        </div>
-
-                        <!-- L23-26 (ไม่อนุญาต) -->
-                        <div class="card searchable">
-                            <div>
-                                <span class="badge badge-skin">SKIN: Lec 23 - 26</span>
-                                <h4>ผศ.ดร.ชาทะนันท์ / อ.ดร.นพ.อภิสิทธิ์</h4>
-                                <p class="email-info">Arthropod infestation & Parasitic skin infection</p>
-                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
-                            </div>
                         </div>
 
                     </div>
