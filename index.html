@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pannawat Knowledge Hub | คลังการเรียนแพทย์ ปี 1 - 6</title>
+    <title>Pannawat Knowledge Hub | SKIN & GEN 5 Block</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -87,13 +87,8 @@
             padding: 0 20px;
         }
 
-        .year-content {
-            display: none;
-        }
-
-        .year-content.active {
-            display: block;
-        }
+        .year-content { display: none; }
+        .year-content.active { display: block; }
 
         /* Search Bar */
         .search-box {
@@ -151,7 +146,7 @@
         }
 
         .drawer-content.open {
-            max-height: 4500px;
+            max-height: 5500px;
             padding: 20px;
         }
 
@@ -214,6 +209,7 @@
         }
 
         .badge-skin { background: #FDEBD0; color: var(--accent-skin); }
+        .badge-lab { background: #E8DAEF; color: #8E44AD; }
 
         .badge-status {
             font-size: 11px;
@@ -258,7 +254,6 @@
 
         .email-info { font-size: 12px; color: #777; margin-top: 2px; }
 
-        /* Placeholder Card สำหรับปีอื่นๆ */
         .placeholder-card {
             background: white;
             border-radius: 15px;
@@ -287,7 +282,7 @@
         <p>ศูนย์รวมบทเรียน คลังคลิปการสอน และข้อสอบนักศึกษาแพทย์</p>
     </header>
 
-    <!-- 🎓 แถบแท็บใหญ่: ชั้นปีที่ 1 - 6 🎓 -->
+    <!-- 🎓 แท็บปี 1 - 6 🎓 -->
     <nav class="nav-tabs-years">
         <button class="tab-year-btn" onclick="switchYear('year1')">ปี 1</button>
         <button class="tab-year-btn active" onclick="switchYear('year2')">ปี 2</button>
@@ -299,7 +294,7 @@
 
     <div class="container">
 
-        <!-- 📍 แท็บ ปี 1 (รออัปเดต) -->
+        <!-- แท็บ ปี 1 -->
         <section id="year1" class="year-content">
             <div class="placeholder-card">
                 <i class="fas fa-hourglass-half"></i>
@@ -308,16 +303,15 @@
             </div>
         </section>
 
-        <!-- 📍 แท็บ ปี 2 (มีข้อมูลครบถ้วน) -->
+        <!-- แท็บ ปี 2 -->
         <section id="year2" class="year-content active">
             
-            <!-- ช่องค้นหา -->
             <div class="search-box">
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาอาจารย์, วิชา (GEN 5/SKIN), หรือ Lecture..." onkeyup="liveSearch()">
             </div>
 
-            <!-- แถบซ่อนคลังคลิปอาจารย์ (GEN 5 & SKIN) -->
+            <!-- แถบซ่อนคลิปสอนอาจารย์ -->
             <button class="drawer-btn" onclick="toggleDrawer()">
                 <span><i class="fas fa-folder-open"></i> 🎓 แท็บบาร์รวมคลิปสอนอาจารย์ (GEN 5 & SKIN Block)</span>
                 <i class="fas fa-chevron-down" id="drawerIcon"></i>
@@ -325,12 +319,12 @@
             
             <div class="drawer-content" id="drawerContent">
                 <div class="sub-nav-tabs">
-                    <button class="sub-tab-btn active-gen5" id="btnGen5" onclick="switchSubject('gen5')"><i class="fas fa-book"></i> วิชา GEN 5 (17 ท่าน)</button>
-                    <button class="sub-tab-btn" id="btnSkin" onclick="switchSubject('skin')"><i class="fas fa-dna"></i> วิชา SKIN Block (19 ท่าน)</button>
+                    <button class="sub-tab-btn" id="btnGen5" onclick="switchSubject('gen5')"><i class="fas fa-book"></i> วิชา GEN 5</button>
+                    <button class="sub-tab-btn active-skin" id="btnSkin" onclick="switchSubject('skin')"><i class="fas fa-dna"></i> วิชา SKIN Block</button>
                 </div>
 
-                <!-- หมวด GEN 5 -->
-                <div id="subjectGen5" class="subject-block active">
+                <!-- GEN 5 -->
+                <div id="subjectGen5" class="subject-block">
                     <div class="grid-cards">
                         <div class="card searchable">
                             <div>
@@ -507,14 +501,15 @@
                     </div>
                 </div>
 
-                <!-- หมวด SKIN Block -->
-                <div id="subjectSkin" class="subject-block">
+                <!-- 🌟 SKIN Block (อัปเดตลิงก์วิดีโอตรงตามเลคเชอร์ + Lab 7) 🌟 -->
+                <div id="subjectSkin" class="subject-block active">
                     <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                        <span style="font-size: 13px; color: #555;"><i class="fas fa-list-ol"></i> รายชื่ออาจารย์วิชา SKIN Block (19 ท่าน)</span>
-                        <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt" style="background:#E67E22;"><i class="fab fa-youtube"></i> ดู Playlist รวมวิชา SKIN ทั้งหมด</a>
+                        <span style="font-size: 13px; color: #555;"><i class="fas fa-list-ol"></i> รายชื่อคลิปการสอนและแล็บวิชา SKIN Block</span>
+                        <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt" style="background:#E67E22;"><i class="fab fa-youtube"></i> ดู Playlist รวมวิชา SKIN</a>
                     </div>
 
                     <div class="grid-cards">
+                        <!-- L1-2 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 1, 2</span>
@@ -522,8 +517,10 @@
                                 <p class="email-info"><i class="fas fa-envelope"></i> rarisa@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/NHVwt2ksJ6k?si=jWkQ7VN9iXnONEX1" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L1-2</a>
                         </div>
+
+                        <!-- L3-4 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 3, 4</span>
@@ -531,8 +528,10 @@
                                 <p class="email-info"><i class="fas fa-envelope"></i> wiphawi@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว 🔥</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/pwFokJXOyzA?si=L7iESvA4yypkfGHr" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L3-4</a>
                         </div>
+
+                        <!-- L5 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 5</span>
@@ -540,8 +539,10 @@
                                 <p class="email-info"><i class="fas fa-envelope"></i> areeji@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/XTMOFjHsXRk?si=N9oRR4KroV8MceXN" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L5</a>
                         </div>
+
+                        <!-- L6-7 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 6, 7</span>
@@ -549,44 +550,112 @@
                                 <p class="email-info"><i class="fas fa-envelope"></i> sophiph@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/yZfHQHZ-Tw4?si=vD6y91q6BqBTPlaG" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L6-7</a>
                         </div>
+
+                        <!-- L8-9 -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 8</span>
-                                <h4>รศ.นพ.เจริญ ชุณหกาญจน์</h4>
+                                <span class="badge badge-skin">SKIN: Lec 8, 9</span>
+                                <h4>รศ.นพ.เจริญ ชุณหกาญจน์ / อ.นพ.สิรวิชญ์</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> ccharo@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว (มี PDF แจก)</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/nzLxbJoyE4w?si=u8k1Z-vLyrDhDIpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L8-9</a>
                         </div>
+
+                        <!-- L10-12 -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 9-12, 17</span>
+                                <span class="badge badge-skin">SKIN: Lec 10, 11, 12</span>
                                 <h4>อ.นพ.สิรวิชญ์ เจษฎาภัทรกุล</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> siraja@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/_gVAFf2EnEg?si=GwMOQ9zgeMrUk2_n" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L10-12</a>
                         </div>
+
+                        <!-- L13-15 -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 13-15</span>
+                                <span class="badge badge-skin">SKIN: Lec 13, 14, 15</span>
                                 <h4>อ.นพ.ปรม บุตรมะลา</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> parabud@kku.ac.th</p>
-                                <span class="badge-status status-uploaded">อัปโหลดแล้ว (เข้าเกิน 70%)</span>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <a href="https://youtu.be/AMMwkzpV6Iw?si=J8fjWM6NNATdaOzF" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L15</a>
                         </div>
+
+                        <!-- L16-19 -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 16, 18, 19</span>
+                                <span class="badge badge-skin">SKIN: Lec 16 - 19</span>
                                 <h4>รศ.พญ.จุฬาพรรณ อิ้งจะนิล</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> chueng@kku.ac.th</p>
                                 <span class="badge-status status-uploaded">อัปโหลดบางส่วน</span>
                             </div>
-                            <a href="https://www.youtube.com/playlist?list=PLanvuHISbUpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิปใน Playlist</a>
+                            <div style="margin-top: 8px;">
+                                <a href="https://youtu.be/FhtbrjP5Fec?si=E_Z2EW5IhQ9n-sQW" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L16-17</a>
+                                <a href="https://youtu.be/5n7EAR1qcIw?si=eFziyjzcmkgGyQKv" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L18-19</a>
+                            </div>
                         </div>
+
+                        <!-- L20-21 -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 20, 21</span>
+                                <h4>อ.พญ.ณภาภัช เผ่าพันธ์</h4>
+                                <p class="email-info"><i class="fas fa-envelope"></i> napapao@kku.ac.th</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
+                            </div>
+                            <a href="https://youtu.be/7SizwrtbvJI?si=iCOiooeV216Hey3j" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L20-21</a>
+                        </div>
+
+                        <!-- L22 -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 22</span>
+                                <h4>ผศ.ดร.กิตติพันธุ์ เสมอพิทักษ์</h4>
+                                <p class="email-info"><i class="fas fa-envelope"></i> kittipan@kku.ac.th</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
+                            </div>
+                            <a href="https://youtu.be/abFWRLXXFQs?si=h0A53WfO_0OUN90O" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L22</a>
+                        </div>
+
+                        <!-- L27-28 -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 27, 28</span>
+                                <h4>ศ.ดร.ภญ.วิจิตรา / ผศ.นพ.ดนุ เกษรศิริ</h4>
+                                <p class="email-info"><i class="fas fa-envelope"></i> dhanu@kku.ac.th</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
+                            </div>
+                            <a href="https://youtu.be/Up5ewH-Mkq0?si=FkKvALoysebhfn0N" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L27-28</a>
+                        </div>
+
+                        <!-- L29-31 -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 29, 30, 31</span>
+                                <h4>ผศ.นพ.ดนุ เกษรศิริ / รศ.ดร.ภญ.เอื้อมเดือน</h4>
+                                <p class="email-info"><i class="fas fa-envelope"></i> peuamd@kku.ac.th</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
+                            </div>
+                            <a href="https://youtu.be/41IoaaArMpw?si=Tw6q_DZitdo-ajSs" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L29-31</a>
+                        </div>
+
+                        <!-- L32 -->
+                        <div class="card searchable">
+                            <div>
+                                <span class="badge badge-skin">SKIN: Lec 32</span>
+                                <h4>อ.นพ.รชฏ วงศ์จิรัฐิติกุล</h4>
+                                <p class="email-info"><i class="fas fa-envelope"></i> himmy.r@gmail.com</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
+                            </div>
+                            <a href="https://youtu.be/k_0CWVEnINc?si=hFzbm6E-ZqKFbJdR" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L32</a>
+                        </div>
+
+                        <!-- L33-34 -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 33, 34</span>
@@ -599,35 +668,33 @@
                                 <a href="https://drive.google.com/file/d/15bA3QBJgbi_RsfldKx5NcbYlahf3zG99/view" target="_blank" class="btn-watch-drive"><i class="fab fa-google-drive"></i> Part 2</a>
                             </div>
                         </div>
+
+                        <!-- 🌟 การ์ดใหม่: Lab7 Pathology 🌟 -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 20, 21</span>
-                                <h4>อ.พญ.ณภาภัช เผ่าพันธ์</h4>
-                                <p class="email-info"><i class="fas fa-envelope"></i> napapao@kku.ac.th</p>
-                                <span class="badge-status status-pending">รอการตอบรับ</span>
+                                <span class="badge badge-lab">SKIN: Lab 7 Pathology</span>
+                                <h4>ปฏิบัติการพยาธิวิทยา (Lab 7 Pathology)</h4>
+                                <p class="email-info"><i class="fas fa-microscope"></i> คลิปการเรียนการสอนทางปฏิบัติการ</p>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
+                            <a href="https://youtu.be/TcXdgT-416k?si=sYISaM9WyCrINla-" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป Lab 7 Pathology</a>
                         </div>
+
+                        <!-- L23-26 (ไม่อนุญาต) -->
                         <div class="card searchable">
                             <div>
-                                <span class="badge badge-skin">SKIN: Lec 23, 24</span>
-                                <h4>ผศ.ดร.ชาทะนันท์ เอี่ยมอุดมกาล</h4>
+                                <span class="badge badge-skin">SKIN: Lec 23 - 26</span>
+                                <h4>ผศ.ดร.ชาทะนันท์ / อ.ดร.นพ.อภิสิทธิ์</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> chatea@kku.ac.th</p>
                                 <span class="badge-status status-denied">ไม่อนุญาต (สาขาปรสิต)</span>
                             </div>
                         </div>
-                        <div class="card searchable">
-                            <div>
-                                <span class="badge badge-skin">SKIN: Lec 25, 26</span>
-                                <h4>อ.ดร.นพ.อภิสิทธิ์ ไชยดี</h4>
-                                <p class="email-info"><i class="fas fa-envelope"></i> apisch@kku.ac.th</p>
-                                <span class="badge-status status-denied">ไม่อนุญาต (สาขาปรสิต)</span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <!-- ส่วนคลังข้อสอบและสรุปบทเรียนของปี 2 -->
+            <!-- ส่วนสรุปและแนวข้อสอบ -->
             <div class="card">
                 <h3>📝 แนวข้อสอบชีววิทยา ชั้นปีที่ 2</h3>
                 <div style="margin-top: 10px;">
@@ -640,7 +707,7 @@
 
         </section>
 
-        <!-- 📍 แท็บ ปี 3 (รออัปเดต) -->
+        <!-- ปี 3 - 6 -->
         <section id="year3" class="year-content">
             <div class="placeholder-card">
                 <i class="fas fa-hourglass-half"></i>
@@ -649,7 +716,6 @@
             </div>
         </section>
 
-        <!-- 📍 แท็บ ปี 4 (รออัปเดต) -->
         <section id="year4" class="year-content">
             <div class="placeholder-card">
                 <i class="fas fa-user-md"></i>
@@ -658,7 +724,6 @@
             </div>
         </section>
 
-        <!-- 📍 แท็บ ปี 5 (รออัปเดต) -->
         <section id="year5" class="year-content">
             <div class="placeholder-card">
                 <i class="fas fa-user-md"></i>
@@ -667,7 +732,6 @@
             </div>
         </section>
 
-        <!-- 📍 แท็บ ปี 6 (รออัปเดต) -->
         <section id="year6" class="year-content">
             <div class="placeholder-card">
                 <i class="fas fa-user-md"></i>
@@ -684,7 +748,6 @@
     </div>
 
     <script>
-        // สลับแท็บใหญ่ (ปี 1 - 6)
         function switchYear(yearId) {
             document.querySelectorAll('.year-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-year-btn').forEach(el => el.classList.remove('active'));
@@ -698,7 +761,6 @@
             }
         }
 
-        // เปิด/ปิด Drawer ซ่อน
         function toggleDrawer() {
             const drawer = document.getElementById('drawerContent');
             const icon = document.getElementById('drawerIcon');
@@ -711,7 +773,6 @@
             }
         }
 
-        // สลับวิชา GEN 5 / SKIN
         function switchSubject(sub) {
             document.querySelectorAll('.subject-block').forEach(el => el.classList.remove('active'));
             document.getElementById('btnGen5').className = 'sub-tab-btn';
@@ -726,7 +787,6 @@
             }
         }
 
-        // ค้นหาข้อความ
         function liveSearch() {
             let query = document.getElementById('searchInput').value.toLowerCase().trim();
             let items = document.querySelectorAll('.searchable');
