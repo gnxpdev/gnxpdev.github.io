@@ -6,7 +6,7 @@
     <title>Pannawat Knowledge Hub | SKIN & GEN 5 Block</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -120,7 +120,7 @@
             padding: 12px 20px;
             border-radius: 15px;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -130,6 +130,7 @@
             margin-bottom: 15px;
         }
 
+        /* เปิดกางเนื้อหาไว้เป็นค่าเริ่มต้น (open) */
         .drawer-content {
             max-height: 0;
             overflow: hidden;
@@ -142,7 +143,7 @@
         }
 
         .drawer-content.open {
-            max-height: 6500px;
+            max-height: 7500px;
             padding: 20px;
         }
 
@@ -155,13 +156,13 @@
         }
 
         .sub-tab-btn {
-            padding: 6px 16px;
+            padding: 8px 18px;
             border: none;
             background: #F0F0F0;
             color: #555;
             border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
         }
@@ -205,20 +206,22 @@
         .badge-skin { background: #FDEBD0; color: var(--accent-skin); }
         .badge-lab { background: #E8DAEF; color: #8E44AD; }
 
+        /* 🌟 ป้ายรอบสอบ MCQ เด่นชัด 🌟 */
         .badge-mcq {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 6px;
-            margin-top: 5px;
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            margin-bottom: 6px;
             width: fit-content;
         }
 
-        .mcq-1-1 { background: #E8F8F5; color: #117A65; border: 1px solid #A3E4D7; }
-        .mcq-1-2 { background: #FEF9E7; color: #B7950B; border: 1px solid #F9E79F; }
-        .mcq-2 { background: #EBF5FB; color: #2980B9; border: 1px solid #AED6F1; }
-        .mcq-3 { background: #F4ECF7; color: #8E44AD; border: 1px solid #D7BDE2; }
+        .mcq-1-1 { background: #D4EFDF; color: #117A65; border: 1.5px solid #27AE60; }
+        .mcq-1-2 { background: #FCF3CF; color: #B7950B; border: 1.5px solid #F1C40F; }
+        .mcq-2 { background: #D6EAF8; color: #1F618D; border: 1.5px solid #2980B9; }
+        .mcq-3 { background: #E8DAEF; color: #6C3483; border: 1.5px solid #8E44AD; }
 
         .badge-status {
             font-size: 11px;
@@ -237,10 +240,11 @@
             gap: 6px;
             background: #FF0000;
             color: white;
-            padding: 6px 12px;
+            padding: 7px 14px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 13px;
+            font-weight: 500;
             margin-top: 8px;
             width: fit-content;
         }
@@ -251,15 +255,16 @@
             gap: 6px;
             background: #107C41;
             color: white;
-            padding: 6px 12px;
+            padding: 7px 14px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 13px;
+            font-weight: 500;
             margin-top: 8px;
             width: fit-content;
         }
 
-        .email-info { font-size: 12px; color: #777; margin-top: 2px; }
+        .email-info { font-size: 12px; color: #666; margin-top: 2px; }
 
         .placeholder-card {
             background: white;
@@ -318,13 +323,13 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาอาจารย์, วิชา, Lecture, หรือรอบข้อสอบ (MCQ I, MCQ II, MCQ III)..." onkeyup="liveSearch()">
             </div>
 
-            <!-- แถบซ่อนคลิปสอนอาจารย์ -->
+            <!-- แถบซ่อนคลิปสอนอาจารย์ (เปิดกาง open ไว้เป็นค่าเริ่มต้น) -->
             <button class="drawer-btn" onclick="toggleDrawer()">
-                <span><i class="fas fa-folder-open"></i> 🎓 แท็บบาร์รวมคลิปสอนอาจารย์ (GEN 5 & SKIN Block)</span>
-                <i class="fas fa-chevron-down" id="drawerIcon"></i>
+                <span><i class="fas fa-folder-open"></i> 🎓 คลังคลิปการสอนอาจารย์ & ขอบเขตสอบ MCQ (GEN 5 & SKIN Block)</span>
+                <i class="fas fa-chevron-up" id="drawerIcon"></i>
             </button>
             
-            <div class="drawer-content" id="drawerContent">
+            <div class="drawer-content open" id="drawerContent">
                 <div class="sub-nav-tabs">
                     <button class="sub-tab-btn" id="btnGen5" onclick="switchSubject('gen5')"><i class="fas fa-book"></i> วิชา GEN 5</button>
                     <button class="sub-tab-btn active-skin" id="btnSkin" onclick="switchSubject('skin')"><i class="fas fa-dna"></i> วิชา SKIN Block</button>
@@ -419,7 +424,7 @@
                                 <span class="badge">Lec 18, 24, 28, 29</span>
                                 <h4>ผศ.ดร.ปณต ตั้งสุจริต</h4>
                                 <p class="email-info"><i class="fas fa-envelope"></i> pantan@kku.ac.th</p>
-                                <span class="badge-status status-uploaded">อัปโหลดแล้ว (ต้องเข้า ≥ 60%)</span>
+                                <span class="badge-status status-uploaded">อัปโหลดแล้ว</span>
                             </div>
                             <div style="margin-top: 8px;">
                                 <a href="https://youtu.be/R4Y4UfjEVp0?si=8SVkBNIhBiAUb_cf" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L18</a>
@@ -508,7 +513,7 @@
                     </div>
                 </div>
 
-                <!-- 🌟 SKIN Block (อัปเดต Lec 17 อยู่ใน MCQ I ชุดที่ 2) 🌟 -->
+                <!-- 🌟 SKIN Block (แสดงป้ายสอบ MCQ เด่นชัดบนทุกการ์ด) 🌟 -->
                 <div id="subjectSkin" class="subject-block active">
                     <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                         <span style="font-size: 13px; color: #555;"><i class="fas fa-list-ol"></i> รายชื่อคลิปการสอนและรอบสอบ MCQ วิชา SKIN Block</span>
@@ -522,7 +527,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 1, 2</span>
                                 <h4>ผศ.ดร.รรินธร สัมฤทธิ์</h4>
                                 <p class="email-info">Organ structure and function of skin (2 h)</p>
-                                <span class="badge-mcq mcq-1-1">📝 สอบ MCQ I ชุดที่ 1 (7 h)</span>
+                                <span class="badge-mcq mcq-1-1">📝 ออกสอบ: MCQ I ชุดที่ 1 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/NHVwt2ksJ6k?si=jWkQ7VN9iXnONEX1" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L1-2</a>
                         </div>
@@ -533,7 +538,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 3, 4</span>
                                 <h4>รศ.ดร.วิภาวี หีบแก้ว</h4>
                                 <p class="email-info">Embryology of skin (2 h)</p>
-                                <span class="badge-mcq mcq-1-1">📝 สอบ MCQ I ชุดที่ 1 (7 h)</span>
+                                <span class="badge-mcq mcq-1-1">📝 ออกสอบ: MCQ I ชุดที่ 1 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/pwFokJXOyzA?si=L7iESvA4yypkfGHr" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L3-4</a>
                         </div>
@@ -544,7 +549,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 5</span>
                                 <h4>อ.ดร.อารียา เจียมจรรยายสิริ</h4>
                                 <p class="email-info">Repair, regeneration of the skin (1 h)</p>
-                                <span class="badge-mcq mcq-1-1">📝 สอบ MCQ I ชุดที่ 1 (7 h)</span>
+                                <span class="badge-mcq mcq-1-1">📝 ออกสอบ: MCQ I ชุดที่ 1 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/XTMOFjHsXRk?si=N9oRR4KroV8MceXN" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L5</a>
                         </div>
@@ -555,7 +560,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 6, 7</span>
                                 <h4>ผศ.ดร.โสภิดา เตชกุลวิสิฐ</h4>
                                 <p class="email-info">Temperature and control (2 h)</p>
-                                <span class="badge-mcq mcq-1-1">📝 สอบ MCQ I ชุดที่ 1 (7 h)</span>
+                                <span class="badge-mcq mcq-1-1">📝 ออกสอบ: MCQ I ชุดที่ 1 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/yZfHQHZ-Tw4?si=vD6y91q6BqBTPlaG" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L6-7</a>
                         </div>
@@ -566,18 +571,18 @@
                                 <span class="badge badge-skin">SKIN: Lec 8</span>
                                 <h4>รศ.นพ.เจริญ ชุณหกาญจน์</h4>
                                 <p class="email-info">Examination of skin (1 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (1 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (1 h)</span>
                             </div>
                             <a href="https://youtu.be/nzLxbJoyE4w?si=u8k1Z-vLyrDhDIpk" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L8</a>
                         </div>
 
-                        <!-- 📍 L9-12 & L17 (ปรับให้อยู่ MCQ I ชุดที่ 2) -->
+                        <!-- 📍 L9-12 & L17 (MCQ I ชุดที่ 2) -->
                         <div class="card searchable">
                             <div>
                                 <span class="badge badge-skin">SKIN: Lec 9-12, 17</span>
                                 <h4>อ.นพ.สิรวิชญ์ เจษฎาภัทรกุล</h4>
                                 <p class="email-info">Tumor disorder (4 h) & Acne/melasma (L17 - 1 h)</p>
-                                <span class="badge-mcq mcq-1-2">📝 สอบ MCQ I ชุดที่ 2 (7 h)</span>
+                                <span class="badge-mcq mcq-1-2">📝 ออกสอบ: MCQ I ชุดที่ 2 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/_gVAFf2EnEg?si=GwMOQ9zgeMrUk2_n" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L10-12 / L17</a>
                         </div>
@@ -588,7 +593,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 13, 14, 15</span>
                                 <h4>อ.นพ.ปรม บุตรมะลา</h4>
                                 <p class="email-info">Pyogenic cocci, Anaerobic, Gram +/- bacilli (3 h)</p>
-                                <span class="badge-mcq mcq-2">📝 สอบ MCQ II (11 h)</span>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
                             <a href="https://youtu.be/AMMwkzpV6Iw?si=J8fjWM6NNATdaOzF" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L15</a>
                         </div>
@@ -599,7 +604,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 16, 18, 19</span>
                                 <h4>รศ.พญ.จุฬาพรรณ อิ้งจะนิล</h4>
                                 <p class="email-info">Normal skin flora & Viral skin infection (3 h)</p>
-                                <span class="badge-mcq mcq-2">📝 สอบ MCQ II (11 h)</span>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
                             <div style="margin-top: 8px;">
                                 <a href="https://youtu.be/FhtbrjP5Fec?si=E_Z2EW5IhQ9n-sQW" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> L16-17</a>
@@ -613,7 +618,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 20, 21</span>
                                 <h4>อ.พญ.ณภาภัช เผ่าพันธ์</h4>
                                 <p class="email-info">Trauma and skin injury (2 h)</p>
-                                <span class="badge-mcq mcq-1-2">📝 สอบ MCQ I ชุดที่ 2 (7 h)</span>
+                                <span class="badge-mcq mcq-1-2">📝 ออกสอบ: MCQ I ชุดที่ 2 (7 h)</span>
                             </div>
                             <a href="https://youtu.be/7SizwrtbvJI?si=iCOiooeV216Hey3j" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L20-21</a>
                         </div>
@@ -624,7 +629,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 22</span>
                                 <h4>ผศ.ดร.กิตติพันธุ์ เสมอพิทักษ์</h4>
                                 <p class="email-info">Fungal skin infection (1 h)</p>
-                                <span class="badge-mcq mcq-2">📝 สอบ MCQ II (11 h)</span>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
                             <a href="https://youtu.be/abFWRLXXFQs?si=h0A53WfO_0OUN90O" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L22</a>
                         </div>
@@ -635,7 +640,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 27, 28</span>
                                 <h4>ศ.ดร.ภญ.วิจิตรา / ผศ.นพ.ดนุ เกษรศิริ</h4>
                                 <p class="email-info">Topical antifungal & antiviral agents (1 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                             <a href="https://youtu.be/Up5ewH-Mkq0?si=FkKvALoysebhfn0N" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L27-28</a>
                         </div>
@@ -646,7 +651,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 29, 30, 31</span>
                                 <h4>ผศ.นพ.ดนุ เกษรศิริ / รศ.ดร.ภญ.เอื้อมเดือน</h4>
                                 <p class="email-info">Drugs in acne, corticosteroids & topical drugs (4 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                             <a href="https://youtu.be/41IoaaArMpw?si=Tw6q_DZitdo-ajSs" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L29-31</a>
                         </div>
@@ -657,7 +662,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 32</span>
                                 <h4>อ.นพ.รชฏ วงศ์จิรัฐิติกุล</h4>
                                 <p class="email-info">Dermal inflammation 1 (1 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                             <a href="https://youtu.be/k_0CWVEnINc?si=hFzbm6E-ZqKFbJdR" target="_blank" class="btn-watch-yt"><i class="fab fa-youtube"></i> ดูคลิป L32</a>
                         </div>
@@ -668,7 +673,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 33, 34</span>
                                 <h4>รศ.พญ.สุธีรพร เชาว์วัฒนาพานิช</h4>
                                 <p class="email-info">Dermal inflammation 2 (2 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                             <div style="margin-top: 8px;">
                                 <a href="https://drive.google.com/file/d/1KkBXk-58zrzVufxsVrJSS7TdinEGSHoS/view" target="_blank" class="btn-watch-drive"><i class="fab fa-google-drive"></i> Part 1</a>
@@ -682,7 +687,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 35, 36</span>
                                 <h4>รศ.พญ.กมลวรรณ เจนวิถีสุข</h4>
                                 <p class="email-info">Common surgical skin condition (2 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                         </div>
 
@@ -692,7 +697,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 37</span>
                                 <h4>ผศ.นพ.นราชัย จุฬานนท์</h4>
                                 <p class="email-info">Clinical correlation (1 h)</p>
-                                <span class="badge-mcq mcq-3">📝 สอบ MCQ III (11 h)</span>
+                                <span class="badge-mcq mcq-3">📝 ออกสอบ: MCQ III (11 h)</span>
                             </div>
                         </div>
 
@@ -713,7 +718,7 @@
                                 <span class="badge badge-skin">SKIN: Lec 23 - 26</span>
                                 <h4>ผศ.ดร.ชาทะนันท์ / อ.ดร.นพ.อภิสิทธิ์</h4>
                                 <p class="email-info">Arthropod infestation & Parasitic skin infection</p>
-                                <span class="badge-mcq mcq-2">📝 สอบ MCQ II (11 h)</span>
+                                <span class="badge-mcq mcq-2">📝 ออกสอบ: MCQ II (11 h)</span>
                             </div>
                         </div>
 
